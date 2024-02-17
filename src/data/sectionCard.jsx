@@ -13,7 +13,7 @@
  import Bags from "/public/backpack.svg";
 
 
-const data =[
+export const SECTION_CARDS =[
 {
     id: 1,
     icon: Shoes,
@@ -93,4 +93,3 @@ const data =[
     filters: "bags"
 }
 ];
-export default data;

@@ -1,4 +1,4 @@
-const data = [
+export const FILTER_FRAME = [
     {
         id: 1,
         name: "Nike",
@@ -32,4 +32,3 @@ const data = [
 
 
 ];
-export default data;

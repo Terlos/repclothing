@@ -1,14 +1,11 @@
+"use client";
 import Image from "next/image";
-import discord from "/public/discord.svg";
-import tiktok from "/public/tiktok.svg";
-import youtube from "/public/youtube.svg";
 import filter from "/public/filter.svg";
-import Cards from "@/components/sectionCards";
+import { Cards } from "@/components/SectionCards";
+import { SearchBar } from "./SearchBar";
+import { FilterFrame } from "@/components/FilterFrame";
 import Link from "next/link";
-import SearchBar from "./searchBar";
-import FilterFrame from "@/components/filterFrame";
-import { useState } from "react";
-export default function Navbar({
+export function Navbar({
   items,
   productData,
   setFilterData,
@@ -17,9 +14,17 @@ export default function Navbar({
   setType,
   setSelectedFilters,
   selectedFilters,
+  style,
+  setStyle,
+  bool,
+  setBool,
+  leftInput,
+  setLeftInput,
+  rightInput,
+  setRightInput,
+  typeResult,
+  setTypeResult,
 }) {
-  const [style, setStyle] = useState("hidden");
-  const [bool, setBool] = useState(true);
   function toggleClass(bool) {
     if (bool === true) {
       setStyle("z-10");
@@ -28,20 +33,19 @@ export default function Navbar({
     }
   }
 
-  const [leftInput, setLeftInput] = useState(0);
-  const [rightInput, setRightInput] = useState(100);
-  const [typeResult, setTypeResult] = useState();
-
   function set(type, selectedFilters, leftInput, rightInput) {
-    if(selectedFilters.length > 0 && type != null){
-        let tempItems = selectedFilters.flatMap((selectedCategory) => {
-            let temp = productData.filter((item) => item.brand === selectedCategory);
-            let hasType = temp.filter((item) => item.section === type);
-            let price = hasType.filter((item) => item.price >= leftInput && item.price <= rightInput);
-            setFilterData(price);
-          });
-
-    }else if (selectedFilters.length > 0) {
+    if (selectedFilters.length > 0 && type != null) {
+      let tempItems = selectedFilters.flatMap((selectedCategory) => {
+        let temp = productData.filter(
+          (item) => item.brand === selectedCategory
+        );
+        let hasType = temp.filter((item) => item.section === type);
+        let price = hasType.filter(
+          (item) => item.price >= leftInput && item.price <= rightInput
+        );
+        setFilterData(price);
+      });
+    } else if (selectedFilters.length > 0) {
       let tempItems = selectedFilters.flatMap((selectedCategory) => {
         let temp = productData.filter(
           (item) => item.brand === selectedCategory
@@ -119,26 +123,12 @@ export default function Navbar({
               </h2>
             </div>
           </div>
-          <div className="flex flex-row justify-center items-center gap-8">
-            <Link href="https://discord.gg/Tdu6hRR9fn">
-              <Image
-                className="hover:cursor-pointer"
-                src={discord}
-                width={26}
-                height={26}
-                alt="Discord Link"
-              ></Image>
-            </Link>
-            <Link href="https://www.tiktok.com/@rep.clothing?is_from_webapp=1&sender_device=pc">
-              <Image
-                className="hover:cursor-pointer"
-                src={tiktok}
-                width={26}
-                height={26}
-                alt="Favorite Items"
-              ></Image>
-            </Link>
-          </div>
+          <Link
+            href="/shopCart"
+            className="flex flex-row justify-center items-center font-semibold text-lg text-primary"
+          >
+            <h1>Košík</h1>
+          </Link>
         </div>
       </div>
       <Cards
