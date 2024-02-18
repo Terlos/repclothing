@@ -5,19 +5,21 @@ import { useState } from "react";
 
 export function SearchBar({ productData, setFilterData }) {
   const [activeSearch, setActiveSearch] = useState([]);
+  const [clear, setClear] = useState("");
   const handleSearch = (e) => {
-    console.log(e.target.value);
     if (e.target.value == "") {
       setActiveSearch([]);
       setFilterData(productData);
       return false;
     }
+    if(clear == ""){
     const result = productData
       .filter((product) =>
         product.name.toLowerCase().includes(e.target.value.toLowerCase())
       )
       .slice(0, 6);
     setActiveSearch(result);
+  }
   };
 
   function handlerSubmit(searchResult) {
@@ -39,7 +41,9 @@ export function SearchBar({ productData, setFilterData }) {
     >
       <Image src={search} width={24} height={24} alt="Discord Link"></Image>
       <input
-        onChange={(e) => handleSearch(e)}
+        type="text"
+        value={clear}
+        onChange={(e) => {handleSearch(e), setClear(e.target.value)}}
         className="text-gray-700 font-poppins text-base font-normal outline-none"
         placeholder="Search by name"
       ></input>
@@ -50,7 +54,7 @@ export function SearchBar({ productData, setFilterData }) {
               <span
                 className="cursor-pointer"
                 key={item.id}
-                onClick={() => searchOptions(item.name)}
+                onClick={() => {searchOptions(item.name), setActiveSearch([]), setClear("")}}
               >
                 {item.name}
               </span>

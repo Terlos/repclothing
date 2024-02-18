@@ -27,10 +27,7 @@ export function Cards({
   }
 
   return (
-    <div className="flex flex-row justify-between items-center w-4/5 gap-4">
-      <div className="rounded-full border-solid border-2 pt-4 pb-4 pr-5 pl-5 hover:cursor-pointer">
-        <Image alt="arrowLeft" src={arrowLeft}></Image>
-      </div>
+    <div className="flex flex-row justify-between items-center w-2/3 gap-4">
       <div className="flex flex-row justify-between items-end w-full">
         {items.map(({ id, name, icon, filters }) => {
           return (
@@ -44,9 +41,6 @@ export function Cards({
             </div>
           );
         })}
-      </div>
-      <div className="rounded-full border-solid border-2 pt-4 pb-4 pr-5 pl-5 hover:cursor-pointer">
-        <Image alt="arrowRight" src={arrowRight}></Image>
       </div>
     </div>
   );

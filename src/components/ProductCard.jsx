@@ -30,8 +30,8 @@ export function ProductCard({ filterData }) {
                 <div>
                   <h3 className="font-normal text-sm">${item.price}</h3>
                 </div>
-                <button onClick={() => handleCardChange(item)}>Přidat</button>
               </div>
+              <button className="border px-2 py-1 rounded-lg hover:border-gray-700" onClick={() => handleCardChange(item)}>Přidat</button>
             </div>
           </div>
         );
