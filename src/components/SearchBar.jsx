@@ -48,11 +48,11 @@ export function SearchBar({ productData, setFilterData }) {
         placeholder="Search by name"
       ></input>
       {activeSearch.length > 0 && (
-        <div className="flex flex-col gap-2 absolute top-12 p-4  bg-slate-400 text-white w-full rounded">
+        <div className="flex flex-col gap-2 absolute top-12 p-4  bg-white text-gray-700 w-full rounded border border-gray-700">
           {activeSearch.map((item) => {
             return (
               <span
-                className="cursor-pointer"
+                className="flex justify-start items-center cursor-pointer hover:border rounded-lg h-8 pl-1"
                 key={item.id}
                 onClick={() => {searchOptions(item.name), setActiveSearch([]), setClear("")}}
               >

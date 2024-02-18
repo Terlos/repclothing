@@ -125,7 +125,7 @@ export function Navbar({
       />
       <div className="flex flex-row justify-center items-center w-full border-b border-gray-700">
         <div className="flex flex-row justify-between items-center w-11/12 pt-6 pb-6">
-          <h1 style={res ? { display: ""} : {display: "none"} } className="text-gray-700 font-poppins text-xl font-semibold hover:cursor-pointer">
+          <h1 onClick={() => setFilterData(productData)} style={res ? { display: ""} : {display: "none"} } className="text-gray-700 font-poppins text-xl font-semibold hover:cursor-pointer">
             REP.CLOTHING
           </h1>
           <div className="flex flex-row justify-center items-center ">
