@@ -5,6 +5,7 @@ import { Cards } from "@/components/SectionCards";
 import { SearchBar } from "./SearchBar";
 import { FilterFrame } from "@/components/FilterFrame";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 export function Navbar({
   items,
   productData,
@@ -25,6 +26,33 @@ export function Navbar({
   typeResult,
   setTypeResult,
 }) {
+  const [res, setRes] = useState(true);
+  function getWindowSize() {
+    if (typeof window !== 'undefined') {
+      const { innerWidth, innerHeight } = window;
+      return { innerWidth, innerHeight };
+    } else {
+      return { innerWidth: 0, innerHeight: 0 };
+    }
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+     const windowSize = getWindowSize()
+     if(windowSize.innerWidth < 629){
+      setRes(false)
+     }else{
+      setRes(true);
+     }
+    }
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   function toggleClass(bool) {
     if (bool === true) {
       setStyle("z-10");
@@ -97,7 +125,7 @@ export function Navbar({
       />
       <div className="flex flex-row justify-center items-center w-full border-b border-gray-700">
         <div className="flex flex-row justify-between items-center w-11/12 pt-6 pb-6">
-          <h1 className="text-gray-700 font-poppins text-xl font-semibold hover:cursor-pointer">
+          <h1 style={res ? { display: ""} : {display: "none"} } className="text-gray-700 font-poppins text-xl font-semibold hover:cursor-pointer">
             REP.CLOTHING
           </h1>
           <div className="flex flex-row justify-center items-center ">

@@ -5,7 +5,7 @@ import { useCardContext } from "../context/CardContext";
 export function ShopCard(){
     const { cart, handleCardDelete, increasePrice, decreasePrice } = useCardContext();
     return(
-        <div className="grid grid-cols-4 gap-10 px-10 md:px-20 sm:grid-cols-2 md:grid-cols-4 w-full">
+        <div className="grid gap-10 px-10 md:px-20 sm:px-10 sm:grid-cols-2 md:grid-cols-4 pt-14 pb-12 w-full">
       {cart.map((item) => {
         return (
           <div
