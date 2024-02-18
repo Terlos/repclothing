@@ -27,8 +27,8 @@ export function Cards({
   }
 
   return (
-    <div className="flex flex-row justify-between items-center w-2/3 gap-4">
-      <div className="flex flex-row justify-between items-end w-full">
+    <div className="flex flex-row justify-between items-center w-3/4 gap-4">
+      <div className="grid gap-10 grid-cols-4 sm:grid-cols-5 xl:grid-cols-13 w-full">
         {items.map(({ id, name, icon, filters }) => {
           return (
             <div
