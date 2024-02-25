@@ -12,22 +12,22 @@ export const FILTER_FRAME = [
     {
         id: 3,
         name: "Jack & Jones",
-        category: "jack & Jones",
+        category: "jack & jones",
     },
     {
         id: 4,
         name: "Tommy Hilfiger",
-        category: "tommy Hilfiger",
+        category: "tommy hilfiger",
     },
     {
         id: 5,
-        name: "Tommy Hilfiger",
-        category: "tommy Hilfiger",
+        name: "Louis vuitton",
+        category: "louis vuitton",
     },
     {
         id: 6,
-        name: "Tommy Hilfiger",
-        category: "tommy Hilfiger",
+        name: "Fila",
+        category: "fila",
     },
 
 

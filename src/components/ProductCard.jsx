@@ -11,15 +11,14 @@ export function ProductCard({ filterData }) {
             //  pathname: `/product/${item.id}`,
             // }}
             key={item.id}
-            className="flex flex-col justify-center items-start gap-6 rounded-lg border border-gray-300 bg-white p-4"
+            className="flex flex-col justify-center items-center gap-6 rounded-lg border border-gray-300 bg-white p-4"
           >
-            <div className="flex flex-col justify-center items-center relative bg-cover w-full">
+            <div className="flex flex-col justify-center items-center bg-cover relative w-full h-72">
               <Image
-                className="bg-cover"
+                className="bg-cover rounded-lg"
                 src={item.imageSrc}
+                fill={true}
                 alt="gg"
-                width={500}
-                height={500}
               />
             </div>
             <div className="flex flex-row justify-between items-end w-full">
@@ -31,7 +30,7 @@ export function ProductCard({ filterData }) {
                   <h3 className="font-normal text-sm">${item.price}</h3>
                 </div>
               </div>
-              <button className="border px-2 py-1 rounded-lg hover:border-gray-700" onClick={() => handleCardChange(item)}>Přidat</button>
+              <button className="border px-2 py-1 rounded-lg hover:border-gray-700" onClick={() => {handleCardChange(item), alert("Produk byl přidán do košíku")}}>Přidat</button>
             </div>
           </div>
         );
