@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useCardContext } from "../context/CardContext";
 
+
 export function ShopCard(){
     const { cart, handleCardDelete, increasePrice, decreasePrice } = useCardContext();
     return(

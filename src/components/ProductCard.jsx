@@ -1,15 +1,16 @@
 import Image from "next/image";
 import { useCardContext } from "../context/CardContext";
+import { Toaster, toast } from 'sonner';
+
 export function ProductCard({ filterData }) {
   const { handleCardChange } = useCardContext();
   return (
+    <>
+    <Toaster/>
     <div className="grid gap-10 px-10 md:px-20 sm:px-10 sm:grid-cols-2 md:grid-cols-4 pt-14 pb-12 w-full">
       {filterData.map((item) => {
         return (
           <div
-            //href={{
-            //  pathname: `/product/${item.id}`,
-            // }}
             key={item.id}
             className="flex flex-col justify-center items-center gap-6 rounded-lg border border-gray-300 bg-white p-4"
           >
@@ -30,11 +31,12 @@ export function ProductCard({ filterData }) {
                   <h3 className="font-normal text-sm">${item.price}</h3>
                 </div>
               </div>
-              <button className="border px-2 py-1 rounded-lg hover:border-gray-700" onClick={() => {handleCardChange(item), alert("Produk byl přidán do košíku")}}>Přidat</button>
+              <button className="border px-2 py-1 rounded-lg hover:border-gray-700" onClick={() => {handleCardChange(item), toast('Položka byla přidána do košíku')}}>Přidat</button>
             </div>
           </div>
         );
       })}
     </div>
+    </>
   );
 }
